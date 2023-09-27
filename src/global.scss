@@ -1,0 +1,49 @@
+html,body{
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+
+  .page-header{
+    height: 60px;
+    background: linear-gradient(red,black);
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+    line-height: 60px;
+    font-size: 30px;
+  }
+
+  .page-main{
+    height: calc(100% - 60px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+
+    // 左侧菜单样式
+    .page-menu{
+      width: 300px;
+      // padding: 20px 0 0;
+      box-sizing: border-box;
+      background-color: pink;
+      height: 100%;
+      overflow-y: auto;
+      // ul{
+      //   padding: 0;
+      //   list-style: none;
+      //   li{
+      //     font-size: 14px;
+      //     line-height: 1.5em;
+      //     padding: 0.2em .8em;
+      //   }
+      // }
+    }
+
+    .page-view{
+      padding: 20px;
+    }
+   
+    
+  }
+}
