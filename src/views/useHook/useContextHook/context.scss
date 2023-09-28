@@ -1,0 +1,31 @@
+section{
+  display: block;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.panel-dark{
+  background-color: #323232;
+  color: #fff;
+
+  .button-dark{
+    background-color: #323232;
+    color: inherit;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+}
+
+.panel-light{
+  background-color: #fff;
+  color: #323232;
+  border: 1px solid #323232;
+  .button-light{
+    background-color: #fff;
+    color: inherit;
+    border: 1px solid #323232;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+}

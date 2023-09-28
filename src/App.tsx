@@ -28,7 +28,7 @@ const items: MenuItem[] = [
   getItem('测试1', 'sub1', <MailOutlined />, [
     getItem(<Link to={`home`}>homePage</Link>, '1'),
     getItem(<Link to={`createContext`}>createContext</Link>, '2'),
-    getItem('Option 3', '3'),
+    getItem(<Link to={`useContext`}>useContextHook</Link>, '3'),
     getItem('Option 4', '4'),
   ]),
 
@@ -64,31 +64,23 @@ function App() {
       <header className='page-header'>Title</header>
       <div className='page-main'>
         <div className='page-menu'>
-        {/* <Switch
-        checked={theme === 'dark'}
-        onChange={changeTheme}
-        checkedChildren="Dark"
-        unCheckedChildren="Light"
-      />
-      <br />
-      <br /> */}
-      <Menu
-        theme={theme}
-        onClick={onClick}
-        style={{ width: '100%',height:"100%" }}
-        defaultOpenKeys={['sub1']}
-        selectedKeys={[current]}
-        mode="inline"
-        items={items}
-      />
-           {/* <ul>
-            <li>
-              <Link to={`home`}>homePage</Link>
-            </li>
-            <li>
-              <Link to={`createContext`}>createContext</Link>
-            </li>
-           </ul> */}
+            {/* <Switch
+            checked={theme === 'dark'}
+            onChange={changeTheme}
+            checkedChildren="Dark"
+            unCheckedChildren="Light"
+          />
+          <br />
+          <br /> */}
+          <Menu
+            theme={theme}
+            onClick={onClick}
+            style={{ width: '100%',height:"100%" }}
+            defaultOpenKeys={['sub1']}
+            selectedKeys={[current]}
+            mode="inline"
+            items={items}
+          />
         </div>
         <div className='page-view'>
            <Outlet/>

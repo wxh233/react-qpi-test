@@ -42,6 +42,8 @@ html,body{
 
     .page-view{
       padding: 20px;
+      width: calc(100% - 300px);
+      box-sizing: border-box;
     }
    
     
