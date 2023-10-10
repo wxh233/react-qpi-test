@@ -1,6 +1,14 @@
-import { createContext ,useState,useContext} from "react";
+import { createContext ,useState,useContext,useEffect} from "react";
 import "./page1.scss"
 import { Button } from "antd";
+import axios, { AxiosResponse } from "axios";
+import "./data"
+type ArrayObj = {
+  id:number,
+  book:string,
+  read:boolean
+}
+type MyBook = ArrayObj[];
 const ThemeContext = createContext('light');
 function CreateContextTest(){
   const [theme,setTheme] = useState('light')
@@ -8,16 +16,25 @@ function CreateContextTest(){
     const th = theme=='light'?'dark':'light';
     setTheme(th)
   }
+
+  const [books,setBooks] = useState<AxiosResponse|null|void|MyBook>(null);
+
+  useEffect(()=>{
+     axios.get("/api/books").then((res)=>{
+      console.log(res);
+      setBooks([...res.data.list])
+     })
+  },[])
   return <>
   <ThemeContext.Provider  value={theme}>
     <button onClick={handleClick}>{theme=='light'?'to dark':'to light'}</button>
     <h1 className={"theme-"+theme}>这是一段creatContext测试页面</h1>
-    <Books />
+    <Books books={books} />
   </ThemeContext.Provider>
   </>
 }
 
-function Books(){
+function Books(books:MyBook){
   function handleContext(){
     console.log(useContext(ThemeContext));
     
@@ -25,10 +42,12 @@ function Books(){
   return <>
    <Button type="primary" onClick={handleContext}>获取context</Button>
    <ul>
-    <li>《西游记》</li>
-    <li>《红楼梦》</li>
-    <li>《水浒传》</li>
-    <li>《三国演义》</li>
+   {
+    books?.length?
+    books.map((el:ArrayObj)=>{
+      return <li key={el.id}>{el.book}</li>
+    }):''
+   }
    </ul>
   </>
 }
