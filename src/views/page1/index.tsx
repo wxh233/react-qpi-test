@@ -1,14 +1,23 @@
-import { createContext ,useState,useContext,useEffect} from "react";
+import { createContext ,useState,useContext,useEffect, ReactNode} from "react";
 import "./page1.scss"
 import { Button } from "antd";
 import axios, { AxiosResponse } from "axios";
 import "./data"
-type ArrayObj = {
-  id:number,
-  book:string,
-  read:boolean
+// type ArrayObj = {
+//   id:number,
+//   book:string,
+//   read:boolean
+// }
+
+type PropsType = {
+  books: {
+    id:number,
+    book:string,
+    read:boolean
+  }[]|null;
 }
-type MyBook = ArrayObj[];
+type MyBook = PropsType[keyof PropsType];
+
 const ThemeContext = createContext('light');
 function CreateContextTest(){
   const [theme,setTheme] = useState('light')
@@ -17,7 +26,7 @@ function CreateContextTest(){
     setTheme(th)
   }
 
-  const [books,setBooks] = useState<AxiosResponse|null|void|MyBook>(null);
+  const [books,setBooks] = useState<null|MyBook>(null);
 
   useEffect(()=>{
      axios.get("/api/books").then((res)=>{
@@ -34,7 +43,7 @@ function CreateContextTest(){
   </>
 }
 
-function Books(books:MyBook){
+function Books({books}:PropsType):React.JSX.Element{
   function handleContext(){
     console.log(useContext(ThemeContext));
     
@@ -44,7 +53,7 @@ function Books(books:MyBook){
    <ul>
    {
     books?.length?
-    books.map((el:ArrayObj)=>{
+    books.map((el)=>{
       return <li key={el.id}>{el.book}</li>
     }):''
    }

@@ -29,7 +29,7 @@ const items: MenuItem[] = [
     getItem(<Link to={`home`}>homePage</Link>, '1'),
     getItem(<Link to={`createContext`}>createContext</Link>, '2'),
     getItem(<Link to={`useContext`}>useContextHook</Link>, '3'),
-    getItem('Option 4', '4'),
+    getItem(<Link to='useReducer'>useReducer</Link>, '4'),
   ]),
 
   getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [

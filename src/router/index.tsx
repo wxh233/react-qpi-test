@@ -4,6 +4,7 @@ import CreateContextTest from "../views/page1";
 import ErrorPage from "../components/router-error";
 import HomePage from "../views/page2";
 import { lazy } from "react";
+import Counter from "../views/useHook/reducer/TestReducer";
 
 
 const UseContextHook = lazy(()=>import("../views/useHook/useContextHook/index"))
@@ -28,6 +29,10 @@ const routes=[{
     {
       path:"/useContext",
       element:<UseContextHook/>
+    },
+    {
+      path:'/useReducer',
+      element:<Counter/>
     }
   ]
 },
