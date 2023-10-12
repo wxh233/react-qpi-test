@@ -8,14 +8,14 @@ function DelayEffect(props:{timerMs:number}){
     setTimeout(()=>{
      
     },timerMs*1000);
-    const timer = setInterval(()=>{
-      console.log(time);
+    // const timer = setInterval(()=>{
+    //   console.log(time);
       
-      if((time as number)<1){
-        clearInterval(timer);
-      }
-      setTime((time as number) - 1);
-    },1000);
+    //   if((time as number)<1){
+    //     clearInterval(timer);
+    //   }
+    //   setTime((time as number) - 1);
+    // },1000);
     //  return ()=>{
     //   clearInterval(timer);
     //  }

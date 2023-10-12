@@ -1,6 +1,9 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import { Button } from "antd";
 import DelayEffect from "./Effect";
+import RefTest from "./RefTest";
+import Countdown ,{CountdownHandle} from "./Countdown";
+import ForwordRefTest from "./forwordRefDemo";
 const initialState = {count:0};
 type ACTIONTYPE = |{type:"increment";payload:number} | {type:"decrement",payload:string};
 
@@ -22,6 +25,11 @@ function reducer(state:typeof initialState,action:ACTIONTYPE){
 
 function Counter(){
   const [state,dispatch] = useReducer(reducer,initialState);
+  const countdownEl = useRef<CountdownHandle>(null!);
+
+  function handleCountdown(){
+    countdownEl.current.start();
+  }
   return (
     <>
      Count:{state.count}
@@ -32,6 +40,16 @@ function Counter(){
 
      <div style={{marginTop:30}}>
       <DelayEffect timerMs={5}/>
+     </div>
+
+     <RefTest/>
+
+     <div style={{marginTop:30}}>
+      <Countdown ref={countdownEl} title="xxx的title" onClick={handleCountdown} getData={()=>{countdownEl.current.dataApi()}} />
+     </div>
+
+     <div style={{marginTop:20}}>
+      <ForwordRefTest/>
      </div>
     </>
   )
