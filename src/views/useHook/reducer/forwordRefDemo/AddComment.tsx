@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef,MutableRefObject} from "react";
+import { forwardRef, useImperativeHandle, useRef} from "react";
 import Input, { InputRef } from "antd/es/input/Input";
 
 export type InputHandle = {
@@ -13,14 +13,14 @@ type InputProps ={
 
 
 const AddComment = forwardRef<InputHandle,InputProps>(({placeholder,saveComment},ref)=>{
-  const inputRef = useRef<HTMLInputElement>(null!)
+  const inputRef = useRef<InputRef>(null!)
   useImperativeHandle(ref,(()=>{
     return {
       foucs(){
         inputRef.current.focus();
       },
       clear(){
-        inputRef.current.input.value = '';
+        inputRef.current.input!.value = '';
       }
     }
   }))

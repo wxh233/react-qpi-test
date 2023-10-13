@@ -4,6 +4,7 @@ import DelayEffect from "./Effect";
 import RefTest from "./RefTest";
 import Countdown ,{CountdownHandle} from "./Countdown";
 import ForwordRefTest from "./forwordRefDemo";
+import el from "./TypingDefaultProps/TypingDefaultProps";
 const initialState = {count:0};
 type ACTIONTYPE = |{type:"increment";payload:number} | {type:"decrement",payload:string};
 
@@ -51,6 +52,7 @@ function Counter(){
      <div style={{marginTop:20}}>
       <ForwordRefTest/>
      </div>
+     {el}
     </>
   )
 }
