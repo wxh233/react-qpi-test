@@ -5,6 +5,7 @@ import ErrorPage from "../components/router-error";
 import HomePage from "../views/page2";
 import { lazy } from "react";
 import Counter from "../views/useHook/reducer/TestReducer";
+import TabContainer from "../views/useHook/useTranstion/UseTranstionTest";
 
 
 const UseContextHook = lazy(()=>import("../views/useHook/useContextHook/index"))
@@ -33,6 +34,10 @@ const routes=[{
     {
       path:'/useReducer',
       element:<Counter/>
+    },
+    {
+      path:'tabContainer',
+      element:<TabContainer/>
     }
   ]
 },

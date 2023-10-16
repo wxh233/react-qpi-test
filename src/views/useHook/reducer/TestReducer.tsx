@@ -5,6 +5,7 @@ import RefTest from "./RefTest";
 import Countdown ,{CountdownHandle} from "./Countdown";
 import ForwordRefTest from "./forwordRefDemo";
 import el from "./TypingDefaultProps/TypingDefaultProps";
+import PortalTest from "./PortalTest/PortalTest";
 const initialState = {count:0};
 type ACTIONTYPE = |{type:"increment";payload:number} | {type:"decrement",payload:string};
 
@@ -49,10 +50,12 @@ function Counter(){
       <Countdown ref={countdownEl} title="xxx的title" onClick={handleCountdown} getData={()=>{countdownEl.current.dataApi()}} />
      </div>
 
-     <div style={{marginTop:20}}>
+     <div style={{marginTop:20}} id="modal-root">
       <ForwordRefTest/>
      </div>
      {el}
+
+     <PortalTest/>
     </>
   )
 }
