@@ -5,10 +5,11 @@ import Contact from "./Contact";
 import Posts from "./Posts";
 // useTransition 是一个帮助你在不阻塞 UI 的情况下更新状态的 React Hook。
 function TabContainer(){
-  const [isPending,startTransition] = useTransition();
+  // const [isPending,startTransition] = useTransition();
   const [tab,setTab] = useState<string>('about');
   function selectTab(nextTab:string){
-    startTransition(()=>setTab(nextTab))
+    // startTransition(()=>setTab(nextTab))
+    setTab(nextTab)
   };
   return <>
     <TabButton isActive={tab==='about'} onClick={()=>selectTab('about')}>About</TabButton>
