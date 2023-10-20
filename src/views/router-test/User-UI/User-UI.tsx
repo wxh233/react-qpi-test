@@ -52,7 +52,8 @@ export default function Contact(){
         {contact.notes && <p>{contact.notes}</p>}
 
         <div>
-          <Form action="edit">
+          <Form action="edit/2">
+            <input type="hidden" name="wxh" value="huzs" />
             <button type="submit">Edit</button>
           </Form>
           <Form

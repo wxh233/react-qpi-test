@@ -8,6 +8,8 @@ import Counter from "../views/useHook/reducer/TestReducer";
 import TabContainer from "../views/useHook/useTranstion/UseTranstionTest";
 import Contact from "../views/router-test/User-UI/User-UI";
 import UserEditor from "../views/router-test/User-UI/Editor";
+import RouterTest from "../views/router-test";
+import { loader as rootLoader } from "./root";
 
 
 const UseContextHook = lazy(()=>import("../views/useHook/useContextHook/index"))
@@ -42,12 +44,13 @@ const routes=[{
       element:<TabContainer/>
     },
     {
-      path:"/userui",
-      element:<Contact/>,
+      path:"/router",
+      element:<RouterTest/>,
+      loader:rootLoader,
       children:[
         {
-          path:"/userui/edit",
-          element:<UserEditor/>
+          path:"/router/contacts/:contactId",
+          element:<Contact/>
         }
       ]
     }

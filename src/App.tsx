@@ -31,7 +31,7 @@ const items: MenuItem[] = [
     getItem(<Link to={`useContext`}>useContextHook</Link>, '3'),
     getItem(<Link to='useReducer'>useReducer</Link>, '4'),
     getItem(<Link to='tabContainer'>tabContainer</Link>, '5'),
-    getItem(<Link to="userui">Router-UserUI</Link>,"6")
+    getItem(<Link to="router">Router-Test</Link>,"6")
   ]),
 
   // getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
