@@ -1,7 +1,7 @@
-import { createContext ,useState,useContext,useEffect, ReactNode} from "react";
+import { createContext ,useState,useContext,useEffect } from "react";
 import "./page1.scss"
 import { Button } from "antd";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import "./data"
 // type ArrayObj = {
 //   id:number,

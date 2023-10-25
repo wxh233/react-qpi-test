@@ -6,10 +6,10 @@ import HomePage from "../views/page2";
 import { lazy } from "react";
 import Counter from "../views/useHook/reducer/TestReducer";
 import TabContainer from "../views/useHook/useTranstion/UseTranstionTest";
-import Contact from "../views/router-test/User-UI/User-UI";
-import UserEditor from "../views/router-test/User-UI/Editor";
+import Contact ,{loader as contactLoader} from "../views/router-test/User-UI/User-UI";
 import RouterTest from "../views/router-test";
-import { loader as rootLoader } from "./root";
+import { loader as rootLoader ,action as rootAction} from "./root";
+import EditConact from "../views/router-test/User-UI/Editor";
 
 
 const UseContextHook = lazy(()=>import("../views/useHook/useContextHook/index"))
@@ -47,10 +47,17 @@ const routes=[{
       path:"/router",
       element:<RouterTest/>,
       loader:rootLoader,
+      action:rootAction,
       children:[
         {
           path:"/router/contacts/:contactId",
-          element:<Contact/>
+          element:<Contact/>,
+          loader:contactLoader,
+        },
+        {
+          path:"/router/contacts/:contactId/edit",
+          element:<EditConact/>,
+          loader:contactLoader,
         }
       ]
     }

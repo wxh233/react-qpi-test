@@ -1,9 +1,9 @@
 import './App.css'
 import { Outlet,Link } from 'react-router-dom'
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import type { MenuProps, MenuTheme } from 'antd';
+import {  MailOutlined  } from '@ant-design/icons';
+import type { MenuProps  } from 'antd';
 import { useState } from 'react';
-import { Menu, Switch } from 'antd';
+import { Menu  } from 'antd';
 
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -50,12 +50,12 @@ const items: MenuItem[] = [
 
 
 function App() {
-  const [theme, setTheme] = useState<MenuTheme>('dark');
+  // const [theme, setTheme] = useState<MenuTheme>('dark');
   const [current, setCurrent] = useState('1');
 
-  const changeTheme = (value: boolean) => {
-    setTheme(value ? 'dark' : 'light');
-  };
+  // const changeTheme = (value: boolean) => {
+  //   setTheme(value ? 'dark' : 'light');
+  // };
 
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
@@ -75,7 +75,6 @@ function App() {
           <br />
           <br /> */}
           <Menu
-            theme={theme}
             onClick={onClick}
             style={{ width: '100%',height:"100%" }}
             defaultOpenKeys={['sub1']}

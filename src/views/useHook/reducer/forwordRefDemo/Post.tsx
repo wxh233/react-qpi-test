@@ -9,6 +9,8 @@ export type PostHandle = {
 type comType = JSX.Element[]
 
 const Post  = forwardRef((props,ref)=>{
+  console.log(props);
+  
    const textRef = useRef<CommentListHandle>(null!);
    const inputRef = useRef<InputHandle>(null);
    useImperativeHandle(ref,(()=>({

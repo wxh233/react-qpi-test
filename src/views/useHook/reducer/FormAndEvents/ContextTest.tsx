@@ -14,3 +14,5 @@ class CssThemeProvider extends PureComponent<Props>{
      return  <div ref={this.rootRef}>{this.props.children}</div>
    }
 }
+
+export default CssThemeProvider;

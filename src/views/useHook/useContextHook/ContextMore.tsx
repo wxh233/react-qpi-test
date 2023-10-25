@@ -1,4 +1,4 @@
-import { useState,useContext, ReactEventHandler, ReactNode } from "react";
+import { useState,useContext, ReactNode } from "react";
 import { ThemeContext,CurrentUserContext } from "./type";
 import "./context.scss";
 
@@ -10,7 +10,7 @@ interface currentType{
 export default function ContextMore() {
   const [theme, setTheme] = useState('light');
   return (
-     <MyProvider theme={theme} setTheme={setTheme}>
+     <MyProvider theme={theme} >
        <WelcomePanel />
         <label>
           <input
@@ -27,7 +27,7 @@ export default function ContextMore() {
 }
 
 
-function MyProvider({theme,setTheme,children}:{theme:string,setTheme:any,children:ReactNode}){
+function MyProvider({theme,children}:{theme:string,children:ReactNode}){
   const [currentUser, setCurrentUser] = useState(null);
   return(
     <>

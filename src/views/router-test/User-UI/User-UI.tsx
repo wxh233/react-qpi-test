@@ -1,22 +1,28 @@
-import { Form } from "react-router-dom";
+import { Form,useLoaderData } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-type contactType = {
-  first:string,
-  last:string,
-  avatar:string,
-  twitter:string,
-  notes:string,
-  favorite:boolean
+import { getContact } from "../../../router/contacts";
+import {contactType} from './contact-type';
+
+type D = {
+  contactId:number
 }
+
+export async function loader({params}:{params:D}){
+  const contact = await getContact(params.contactId);
+  return {contact}
+}
+
 export default function Contact(){
-  const contact:contactType = {
-    first: "Your",
-    last: "Name",
-    avatar: "https://placekitten.com/g/200/200",
-    twitter: "your_handle",
-    notes: "Some notes",
-    favorite: true,
-  };
+  // const contact:contactType = {
+  //   first: "Your",
+  //   last: "Name",
+  //   avatar: "https://placekitten.com/g/200/200",
+  //   twitter: "your_handle",
+  //   notes: "Some notes",
+  //   favorite: true,
+  // };
+
+  const {contact}:{contact:contactType}= useLoaderData() as {contact:contactType};
   return (
     <div id="contact">
       <div>
@@ -52,7 +58,7 @@ export default function Contact(){
         {contact.notes && <p>{contact.notes}</p>}
 
         <div>
-          <Form action="edit/2">
+          <Form action="edit">
             <input type="hidden" name="wxh" value="huzs" />
             <button type="submit">Edit</button>
           </Form>

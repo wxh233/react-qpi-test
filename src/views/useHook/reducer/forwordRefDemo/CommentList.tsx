@@ -1,4 +1,4 @@
-import { ElementType, ReactPropTypes, forwardRef, useImperativeHandle, useRef } from "react"
+import { forwardRef, useImperativeHandle, useRef } from "react"
 
 export type CommentListHandle = {
   scrollToBootom:()=>void;

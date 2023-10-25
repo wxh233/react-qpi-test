@@ -24,3 +24,5 @@ class FormTest extends React.Component<Props,State>{
       </>
     }
 }
+
+export default FormTest;

@@ -1,9 +1,9 @@
 import "./router-test.css";
-import { Outlet,Link,useLoaderData } from "react-router-dom";
-import {getContacts} from '../../router/contacts.js';
-type RouteType = {
-  contacts:number
-}
+import { Outlet,Link,useLoaderData,Form } from "react-router-dom";
+// import {getContacts} from '../../router/contacts.js';
+// type RouteType = {
+//   contacts:number
+// }
 export default function RouterTest(){
   const {contacts}:any = useLoaderData();
   return (
@@ -29,9 +29,9 @@ export default function RouterTest(){
             ></div>
              
           </form>
-          <form method="post">
+          <Form method="post">
             <button type="submit">New</button>
-          </form>
+          </Form>
         </div>
         <nav>
           {/* <ul>

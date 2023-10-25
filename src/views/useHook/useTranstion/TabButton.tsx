@@ -7,7 +7,9 @@ type PropsType= {
 }
 function TabButton({children,isActive,onClick}:PropsType){
   // 更新父组件的状态
-  const [isPending,startTransition] = useTransition()
+  const [isPending,startTransition] = useTransition();
+  console.log(isPending);
+  
   if(isActive){
     return <span style={{fontWeight:700,marginRight:20}}>{children}</span>;
   }

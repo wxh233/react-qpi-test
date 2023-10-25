@@ -1,11 +1,11 @@
-import { ReactNode, useEffect, useRef } from "react";
-import ReactDOM, { createPortal } from "react-dom"; 
+import { useRef } from "react";
+import ReactDOM  from "react-dom"; 
 import { Button } from "antd";
 import { createRoot } from "react-dom/client";
 const modalRoot = document.querySelector("#root") as HTMLElement;
-type ModalProps ={
-  children:ReactNode
-}
+// type ModalProps ={
+//   children:ReactNode
+// }
 function PortalTest(){
   const elRef = useRef<HTMLDivElement|null>(null);
   const portalContent = <p style={{color:"red",fontSize:"100px"}}>hello</p>;
@@ -15,6 +15,8 @@ function PortalTest(){
     // console.log(elRef.current);
     // const tt = document.getElementById("#root") 
     // const div = e.target.parentNode.parentNode;
+    console.log(e);
+    
     if(elRef.current){
       console.log(elRef.current);
       // createPortal(portalContent,elRef.current);

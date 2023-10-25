@@ -1,12 +1,13 @@
 import localforage from "localforage";
-import sortBy from 'sort-by';
 import { matchSorter } from "match-sorter";
 
-type contactType = {
-  id:number,
-  createdAt:Date,
+// import sortBy from 'sort-by';
 
-}
+// type contactType = {
+//   id:number,
+//   createdAt:Date,
+
+// }
 
 export async function getContacts(query?:string){
   await fakeNetWork(`getContacts:${query}`);
@@ -17,7 +18,8 @@ export async function getContacts(query?:string){
   if(query){
     contacts = matchSorter(contacts as string[],query,{keys:['first','last']})
   }
-  return (contacts as any[]).sort(sortBy('last','createAt'))
+  // return (contacts as any[]).sort(sortBy('last','createAt'))
+  return contacts as any[]
 }
 
 // 创建联系人
